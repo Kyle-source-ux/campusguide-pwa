@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Viewport pour responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- PWA Configuration -->
+    <meta name="theme-color" content="#4a90e2" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Title & Description -->
+    <title>CampusGuide - Réseau social universitaire</title>
+    <meta name="description" content="CampusGuide - Le réseau social pour les étudiants universitaires en RDC" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    
+    <!-- Manifest pour PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <style>
+      /* Reset et styles de base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html, body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Écran de chargement */
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease-out;
+      }
+      
+      #splash-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .splash-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 24px;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      
+      .splash-text {
+        color: white;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+      
+      .splash-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      
+      .splash-loader {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  <meta name="theme-color" content="#667eea">
+<meta name="description" content="L'application étudiante qui connecte les campus de RDC">
+<link rel="preload" href="/_expo/static/css/web-styles-9991294174ba27a1a26c9aab1090890b.css" as="style"><link rel="stylesheet" href="/_expo/static/css/web-styles-9991294174ba27a1a26c9aab1090890b.css"><link rel="icon" href="/favicon.ico" /></head>
+  <body>
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+        <h1>JavaScript requis</h1>
+        <p>Vous devez activer JavaScript pour utiliser CampusGuide.</p>
+      </div>
+    </noscript>
+    
+    <!-- Écran de chargement -->
+    <div id="splash-screen">
+      <div class="splash-logo">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="white" opacity="0.2"/>
+          <circle cx="60" cy="60" r="50" fill="white"/>
+          <path d="M60 30 L75 50 L60 45 L45 50 Z" fill="#4a90e2"/>
+          <rect x="45" y="50" width="30" height="35" rx="2" fill="#4a90e2"/>
+          <rect x="50" y="58" width="8" height="10" fill="white"/>
+          <rect x="62" y="58" width="8" height="10" fill="white"/>
+          <rect x="50" y="72" width="20" height="8" fill="white"/>
+        </svg>
+      </div>
+      <div class="splash-text">CampusGuide</div>
+      <div class="splash-subtitle">Version iOS/Web PWA</div>
+      <div class="splash-loader"></div>
+    </div>
+    
+    <!-- Root div pour React -->
+    <div id="root"></div>
+    
+    <script>
+      // Masquer le splash screen une fois l'app chargée
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var splash = document.getElementById('splash-screen');
+          if (splash) {
+            splash.classList.add('fade-out');
+            setTimeout(function() {
+              splash.style.display = 'none';
+            }, 300);
+          }
+        }, 1000);
+      });
+    </script>
+  <script src="/_expo/static/js/web/index-22f8be3971ae99f0c620efc9d96d6136.js" defer></script>
+</body>
+</html>
